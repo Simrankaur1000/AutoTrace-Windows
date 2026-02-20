@@ -25,7 +25,7 @@ Windows-only Digital Forensics (DF) tool to collect user activity for the last 3
 Install dependencies with:
 
 ```powershell/cmd
-git-clone https://github.com/Simrankaur1000/AutoTrace-Windows.git
+git clone https://github.com/Simrankaur1000/AutoTrace-Windows.git
 cd AutoTrace-Windows
 pip install -r requirements.txt
 python main.py
