@@ -1,31 +1,41 @@
 # AutoTrace-Windows
 
-Windows-only Digital Forensics (DF) tool to collect user activity for the last 30 days.
+A Windows digital-forensics utility for collecting selected user-activity artefacts and exporting them as JSON for review.
 
----
+## Capabilities
 
-## Features
-
-- Collect **Chrome** and **Edge** browser history (last 30 days)
-- Collect **failed login attempts** (last 30 days)
-- Output is stored in a **JSON file**
-- Works only on **Windows** (requires Administrator to read Security Logs)
-
----
+- Collects Chrome and Microsoft Edge browsing history for the configured recent period (currently 30 days).
+- Extracts failed logon events from the Windows Security event log.
+- Exports collected artefacts to JSON for further analysis.
+- Designed for Windows environments; elevated privileges may be required to access Security logs.
 
 ## Requirements
 
+- Windows
 - Python 3.10+
-- Windows OS
-- Closed browsers (Chrome and Edge)
-- Administrator privileges to read Security Event Logs
+- Administrator privileges for Security event-log access
+- Chrome and/or Edge data available locally
 
-### Python dependencies
+## Setup
 
-Install dependencies with:
-
-```powershell/cmd
+```powershell
 git clone https://github.com/Simrankaur1000/AutoTrace-Windows.git
 cd AutoTrace-Windows
 pip install -r requirements.txt
 python main.py
+```
+
+## Forensic considerations
+
+- Run only on systems you own or are explicitly authorized to examine.
+- Preserve original artefacts and document collection time, host, and operator.
+- Treat exported JSON as sensitive evidence; restrict access and maintain integrity hashes when using it in an investigation.
+- Browser databases may be locked while the browser is running; close browsers before collection.
+
+## Scope and limitations
+
+This is a focused collection utility, not a full forensic acquisition suite. It does not replace validated forensic imaging, chain-of-custody procedures, or specialist forensic analysis.
+
+## Author
+
+Simran Kaur · [Portfolio](https://portfolio-k3wf.vercel.app)
